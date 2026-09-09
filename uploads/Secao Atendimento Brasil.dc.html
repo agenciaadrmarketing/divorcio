@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#2A1015;}
+  a{color:#FFFFFF;}
+  a:hover{color:#F8F2EA;}
+  @keyframes tpSpark{0%,100%{opacity:.7;transform:scale(1) rotate(0deg);}50%{opacity:1;transform:scale(1.18) rotate(10deg);}}
+  @keyframes tpLiquid{to{background-position:-280% 0;}}
+  @media(prefers-reduced-motion:reduce){*{animation:none !important;}}
+</style>
+<script src="./mapa-brasil.js"></script>
+</helmet>
+
+<section id="tp-brasil" data-screen-label="Alcance" style="position:relative;overflow:hidden;padding:clamp(72px,9vw,112px) clamp(20px,5vw,24px);background:#2A1015;color:#FFFFFF;font-family:'Work Sans',-apple-system,sans-serif;">
+  <div aria-hidden="true" style="position:absolute;top:-120px;left:-100px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(191,160,90,0.14),transparent 70%);filter:blur(60px);pointer-events:none;"></div>
+
+  <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,6vw,72px);align-items:center;">
+    <div>
+      <span style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.62);margin-bottom:16px;">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:12px;height:12px;color:#BFA05A;animation:tpSpark 3.4s ease-in-out infinite;"><path d="M12 2c.6 3.6 2.4 5.4 6 6-3.6.6-5.4 2.4-6 6-.6-3.6-2.4-5.4-6-6 3.6-.6 5.4-2.4 6-6z"></path></svg>
+        Atendimento online
+      </span>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:600;line-height:1.12;letter-spacing:-0.018em;font-size:clamp(29px,3.8vw,46px);margin:0 0 16px;text-wrap:pretty;">De qualquer cidade <em style="font-style:italic;font-weight:500;color:#E6CC8F;">do Brasil.</em></h2>
+      <p style="margin:0 0 34px;max-width:480px;font-size:16.5px;line-height:1.74;color:rgba(255,255,255,0.7);text-wrap:pretty;">A análise acontece por videochamada — a mesma escuta e o mesmo sigilo do consultório, sem depender de onde você mora nem de encaixar deslocamento na rotina.</p>
+
+      <div style="display:flex;flex-direction:column;gap:22px;margin-bottom:36px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <span style="flex-shrink:0;width:42px;height:42px;border-radius:13px;border:1px solid rgba(191,160,90,0.4);background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BFA05A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:21px;height:21px;"><circle cx="24" cy="24" r="16"></circle><path d="M8 24h32M24 8c5 5 5 27 0 32M24 8c-5 5-5 27 0 32"></path></svg>
+          </span>
+          <div>
+            <h3 style="margin:0 0 4px;font-family:'Playfair Display',serif;font-size:17.5px;font-weight:600;color:#FFFFFF;line-height:1.25;">Todas as regiões</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.68;color:rgba(255,255,255,0.66);">Do Norte ao Sul, sem lista de espera por cidade.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <span style="flex-shrink:0;width:42px;height:42px;border-radius:13px;border:1px solid rgba(191,160,90,0.4);background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BFA05A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:21px;height:21px;"><circle cx="24" cy="24" r="15"></circle><path d="M24 15v9l6 4"></path></svg>
+          </span>
+          <div>
+            <h3 style="margin:0 0 4px;font-family:'Playfair Display',serif;font-size:17.5px;font-weight:600;color:#FFFFFF;line-height:1.25;">No seu horário</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.68;color:rgba(255,255,255,0.66);">A sessão é marcada em um horário que caiba na sua semana.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <span style="flex-shrink:0;width:42px;height:42px;border-radius:13px;border:1px solid rgba(191,160,90,0.4);background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BFA05A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:21px;height:21px;"><path d="M24 6l14 5v11c0 10-6 16-14 20-8-4-14-10-14-20V11z"></path><path d="M19 24l4 4 7-8"></path></svg>
+          </span>
+          <div>
+            <h3 style="margin:0 0 4px;font-family:'Playfair Display',serif;font-size:17.5px;font-weight:600;color:#FFFFFF;line-height:1.25;">O mesmo sigilo</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.68;color:rgba(255,255,255,0.66);">Videochamada privada: o que é dito ali fica entre nós duas.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" style="position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:11px;border-radius:999px;padding:17px 30px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.05em;text-transform:uppercase;background:#FFFFFF;color:#2A1015;border:1px solid #FFFFFF;text-decoration:none;cursor:pointer;transition:transform .3s cubic-bezier(.16,.84,.44,1),background .3s;" style-hover="background:#F8F2EA;color:#2A1015;transform:translateY(-2px);" style-active="transform:translateY(1px) scale(0.985);" style-before="content:'';position:absolute;inset:0;background:linear-gradient(100deg,#FFFFFF 0%,#FFFFFF 18%,#F6EAD9 36%,#E6CC8F 50%,#F6EAD9 64%,#FFFFFF 84%,#FFFFFF 100%);background-size:280% 100%;animation:tpLiquid 8s linear infinite;opacity:.85;mix-blend-mode:multiply;pointer-events:none;z-index:-1;border-radius:inherit;">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;flex-shrink:0;"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"></path><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"></path></svg>
+        Agendar sessão online
+      </a>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+      <div style="width:min(420px,100%);">
+        <x-import component-from-global-scope="mapa-brasil" from="./mapa-brasil.js" hint-size="100%,430px"></x-import>
+      </div>
+      <p style="margin:0;text-align:center;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.6);">27 capitais · atendimento em todo o país</p>
+    </div>
+  </div>
+</section>
+</x-dc>
+</body>
+</html>

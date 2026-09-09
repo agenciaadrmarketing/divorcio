@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#F8F2EA;}
+  @keyframes tpModalVeil{to{opacity:1;}}
+  @keyframes tpModalPop{to{opacity:1;transform:translateY(0) scale(1);}}
+  @media(prefers-reduced-motion:reduce){
+    [style*="tpModalVeil"],[style*="tpModalPop"]{animation:none !important;opacity:1 !important;transform:none !important;}
+  }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="font-family:'Work Sans',-apple-system,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;">
+
+  <button type="button" onClick="{{ abrirDemo }}" style="padding:16px 26px;border-radius:999px;background:#2A1015;color:#FFFFFF;border:1px solid #2A1015;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;">Abrir popup de teste</button>
+
+<sc-if value="{{ formOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-labelledby="tp-form-titulo" style="position:fixed;inset:0;z-index:1200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(8,4,5,0.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;animation:tpModalVeil .35s ease forwards;">
+    <div onClick="{{ fecharForm }}" aria-hidden="true" style="position:absolute;inset:0;cursor:pointer;"></div>
+    <div style="position:relative;width:100%;max-width:460px;max-height:92vh;overflow:auto;background:#2A1015;border:1px solid rgba(191,160,90,0.34);border-radius:26px;padding:clamp(30px,4vw,42px) clamp(26px,4vw,38px);box-shadow:0 60px 100px -30px rgba(0,0,0,0.7);opacity:0;transform:translateY(28px) scale(0.96);animation:tpModalPop .5s cubic-bezier(.16,.84,.44,1) .08s forwards;">
+      <button type="button" onClick="{{ fecharForm }}" aria-label="Fechar formulário" style="position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.05);color:#FFFFFF;font-size:17px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:background .25s,transform .25s;" style-hover="background:rgba(255,255,255,0.12);transform:rotate(90deg);">×</button>
+
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:26px;">
+        <strong style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#FFFFFF;letter-spacing:0.02em;">{{ marcaNome }}</strong>
+        <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:2px;">{{ marcaLinha }}</span>
+      </div>
+
+      <h2 id="tp-form-titulo" style="margin:0 0 8px;text-align:center;font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,27px);font-weight:600;line-height:1.28;color:#FFFFFF;">{{ formTitulo }}</h2>
+      <p style="margin:0 0 26px;text-align:center;font-size:14px;line-height:1.65;color:rgba(255,255,255,0.62);">{{ formSub }}</p>
+
+      <form onSubmit="{{ enviarForm }}" style="display:flex;flex-direction:column;gap:14px;">
+        <label for="tp-Nome" style="display:flex;flex-direction:column;gap:7px;">
+          <span style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);">Nome completo</span>
+          <input id="tp-Nome" name="Nome" type="text" autocomplete="name" placeholder="Como você quer ser chamada" required="" value="{{ formNome }}" onChange="{{ onFormNome }}" style="width:100%;padding:14px 16px;font-family:'Work Sans',sans-serif;font-size:15px;color:#FFFFFF;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.16);border-radius:12px;outline:none;transition:border-color .25s,box-shadow .25s,background .25s;" style-focus="border-color:#BFA05A;background:rgba(255,255,255,0.07);box-shadow:0 0 0 3px rgba(191,160,90,0.16);">
+        </label>
+        <label for="tp-Email" style="display:flex;flex-direction:column;gap:7px;">
+          <span style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);">E-mail</span>
+          <input id="tp-Email" name="Email" type="email" autocomplete="email" placeholder="seu@email.com" required="" value="{{ formEmail }}" onChange="{{ onFormEmail }}" style="width:100%;padding:14px 16px;font-family:'Work Sans',sans-serif;font-size:15px;color:#FFFFFF;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.16);border-radius:12px;outline:none;transition:border-color .25s,box-shadow .25s,background .25s;" style-focus="border-color:#BFA05A;background:rgba(255,255,255,0.07);box-shadow:0 0 0 3px rgba(191,160,90,0.16);">
+        </label>
+        <label for="tp-Tel" style="display:flex;flex-direction:column;gap:7px;">
+          <span style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);">WhatsApp</span>
+          <input id="tp-Tel" name="Tel" type="tel" autocomplete="tel" placeholder="(11) 90000-0000" required="" value="{{ formTel }}" onChange="{{ onFormTel }}" style="width:100%;padding:14px 16px;font-family:'Work Sans',sans-serif;font-size:15px;color:#FFFFFF;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.16);border-radius:12px;outline:none;transition:border-color .25s,box-shadow .25s,background .25s;" style-focus="border-color:#BFA05A;background:rgba(255,255,255,0.07);box-shadow:0 0 0 3px rgba(191,160,90,0.16);">
+        </label>
+        <sc-if value="{{ formErro }}" hint-placeholder-val="{{ false }}">
+          <p role="alert" style="margin:0;font-size:13px;line-height:1.5;color:#F4B4A6;background:rgba(191,90,90,0.14);border:1px solid rgba(191,90,90,0.34);border-radius:10px;padding:10px 12px;">{{ formErro }}</p>
+        </sc-if>
+        <button type="submit" style="position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:11px;width:100%;margin-top:6px;padding:17px 24px;border-radius:999px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;background:#BFA05A;color:#2A1015;border:1px solid #BFA05A;cursor:pointer;transition:transform .3s cubic-bezier(.16,.84,.44,1),background .3s;" style-hover="background:#D4B876;transform:translateY(-2px);" style-active="transform:translateY(1px) scale(0.99);">
+          <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;flex-shrink:0;"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"></path><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"></path></svg>
+          Continuar no WhatsApp
+        </button>
+        <p style="margin:4px 0 0;display:flex;align-items:center;justify-content:center;gap:6px;font-size:11.5px;line-height:1.5;color:rgba(255,255,255,0.5);text-align:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:12px;height:12px;flex-shrink:0;"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+          Seus dados são sigilosos. Nada de spam.
+        </p>
+      </form>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5511999999999&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;marcaNome&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Sua Marca&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Marca&quot;},&quot;marcaLinha&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Atendimento&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Marca&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.rootRef = React.createRef();
+    this.state = { formOpen: false, formNome: "", formEmail: "", formTel: "", formErro: "", formTitulo: "", formSub: "", pendingMsg: "" };
+  }
+  waNum() { return String(this.props.whatsappNumber ?? "5511999999999").replace(/\D/g, ""); }
+  wireWhatsapp() {
+    const root = this.rootRef.current;
+    if (!root || this._waOn) return;
+    this._waOn = true;
+    // qualquer link com data-msg na página abre este formulário antes de ir pro WhatsApp
+    this._onWaClick = (ev) => {
+      const el = ev.target.closest && ev.target.closest("a[data-msg]");
+      if (!el) return;
+      ev.preventDefault();
+      const msg = el.getAttribute("data-msg") || "Olá! Vim pelo site e gostaria de mais informações.";
+      this.abrirForm(msg);
+    };
+    document.addEventListener("click", this._onWaClick);
+  }
+  abrirForm(msg, titulo, sub) {
+    clearTimeout(this._exitTimer);
+    this.setState({
+      formOpen: true,
+      pendingMsg: msg,
+      formTitulo: titulo || "Vamos conversar?",
+      formSub: sub || "Deixe seus dados e o WhatsApp abre com sua mensagem pronta.",
+      formErro: ""
+    });
+  }
+  fecharForm() { this.setState({ formOpen: false }); }
+  enviarWaComDados(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const { formNome, formEmail, formTel, pendingMsg } = this.state;
+    if (!formNome.trim() || !formTel.trim()) {
+      this.setState({ formErro: "Preciso do seu nome e WhatsApp para continuar." });
+      return;
+    }
+    const linhas = [
+      pendingMsg || "Olá! Vim pelo site e gostaria de mais informações.",
+      "",
+      "Nome: " + formNome.trim(),
+      formEmail.trim() ? "E-mail: " + formEmail.trim() : null,
+      "Telefone: " + formTel.trim()
+    ].filter(Boolean);
+    const url = "https://wa.me/" + this.waNum() + "?text=" + encodeURIComponent(linhas.join("\n"));
+    window.open(url, "_blank", "noopener,noreferrer");
+    try { sessionStorage.setItem("popup_lead_enviado", "1"); } catch (err) {}
+    this.setState({ formOpen: false, formErro: "" });
+  }
+  // exit-intent: mouse saindo por cima da janela dispara o mesmo popup, uma vez por sessão
+  wireExitIntent() {
+    if (this._exitOn || window.innerWidth < 900) return;
+    let jaMostrou = false;
+    try { jaMostrou = sessionStorage.getItem("popup_exit_mostrado") === "1" || sessionStorage.getItem("popup_lead_enviado") === "1"; } catch (err) {}
+    if (jaMostrou) return;
+    this._exitOn = true;
+    this._onExit = (ev) => {
+      if (ev.clientY > 0 || this.state.formOpen) return;
+      try { sessionStorage.setItem("popup_exit_mostrado", "1"); } catch (err) {}
+      document.removeEventListener("mouseout", this._onExit);
+      this.abrirForm(
+        "Olá! Antes de sair, gostaria de saber mais.",
+        "Antes de você ir...",
+        "Se ainda tem dúvidas, deixe seu contato — a gente te responde pelo WhatsApp."
+      );
+    };
+    this._exitTimer = setTimeout(() => {
+      document.addEventListener("mouseout", this._onExit);
+    }, 8000);
+  }
+  componentDidMount() {
+    this.wireWhatsapp();
+    this.wireExitIntent();
+  }
+  componentWillUnmount() {
+    clearTimeout(this._exitTimer);
+    if (this._onWaClick) document.removeEventListener("click", this._onWaClick);
+    if (this._onExit) document.removeEventListener("mouseout", this._onExit);
+  }
+  renderVals() {
+    return {
+      rootRef: this.rootRef,
+      marcaNome: this.props.marcaNome ?? "Sua Marca",
+      marcaLinha: this.props.marcaLinha ?? "Atendimento",
+      formOpen: this.state.formOpen,
+      formTitulo: this.state.formTitulo,
+      formSub: this.state.formSub,
+      formNome: this.state.formNome,
+      formEmail: this.state.formEmail,
+      formTel: this.state.formTel,
+      formErro: this.state.formErro,
+      fecharForm: () => this.fecharForm(),
+      enviarForm: (e) => this.enviarWaComDados(e),
+      onFormNome: (e) => this.setState({ formNome: e.target.value }),
+      onFormEmail: (e) => this.setState({ formEmail: e.target.value }),
+      onFormTel: (e) => this.setState({ formTel: e.target.value }),
+      abrirDemo: () => this.abrirForm("Olá! Vim pelo site e gostaria de mais informações.")
+    };
+  }
+}
+</script>
+</body>
+</html>
