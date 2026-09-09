@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vieiraemarquesadvogados.com/divorcio/sitemap.xml
