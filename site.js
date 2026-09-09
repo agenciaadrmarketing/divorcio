@@ -184,7 +184,27 @@
       }, visivel[i % visivel.length]);
     })();
   }
-  girarFrases();
+
+  // O botão flutuante só aparece depois que o visitante rolar até a
+  // segunda seção da LP ("Nossos serviços"), não já no carregamento.
+  var flutuante = document.getElementById("flutuante");
+  var segundaSecao = document.getElementById("servicos");
+  function mostrarFlutuante() {
+    if (!flutuante || !flutuante.hidden) return;
+    flutuante.hidden = false;
+    requestAnimationFrame(function () { flutuante.classList.add("flutuante-visivel"); });
+    girarFrases();
+  }
+  if (flutuante && segundaSecao && "IntersectionObserver" in window) {
+    var flutuanteIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { mostrarFlutuante(); flutuanteIo.disconnect(); }
+      });
+    }, { rootMargin: "0px 0px -60% 0px" });
+    flutuanteIo.observe(segundaSecao);
+  } else {
+    mostrarFlutuante();
+  }
 
   // ---------- Galeria / lightbox ----------
   var galeria = [
