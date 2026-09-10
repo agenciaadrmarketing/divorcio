@@ -75,12 +75,12 @@
   @property --pct { syntax: "<percentage>"; initial-value: 5%; inherits: false; }
   @property --shine { syntax: "<color>"; initial-value: #ffffff; inherits: false; }
   .cta-shine {
-    --bg: #FFFFFF; --luz: #C9C9C9; --luzSuave: #EDEDED; --dur: 3s;
+    --bg: #1EA94F; --luz: #4ade80; --luzSuave: #a7f3c4; --dur: 3s;
     isolation: isolate; position: relative; overflow: hidden; outline-offset: 4px;
     white-space: nowrap; flex-shrink: 0;
     border: 1px solid transparent !important;
     background: linear-gradient(var(--bg), var(--bg)) padding-box, conic-gradient(from calc(var(--ang) - var(--angOff)), transparent, var(--luz) var(--pct), var(--shine) calc(var(--pct) * 2), var(--luz) calc(var(--pct) * 3), transparent calc(var(--pct) * 4)) border-box !important;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 8px 22px -12px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 8px 22px -12px rgba(26,150,70,0.5);
     transition: --angOff 700ms cubic-bezier(.22,1,.36,1), --pct 700ms cubic-bezier(.22,1,.36,1), --shine 700ms cubic-bezier(.22,1,.36,1), transform 420ms cubic-bezier(.22,1,.36,1), box-shadow 420ms cubic-bezier(.22,1,.36,1);
     will-change: transform;
   }
@@ -106,7 +106,7 @@
   .cta-shine:is(:hover, :focus-visible) {
     --pct: 20%; --angOff: 95deg; --shine: var(--luzSuave);
     transform: translateY(-3px) scale(1.02);
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 0 0 3px rgba(0,0,0,0.12), 0 16px 36px -12px rgba(0,0,0,0.55);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 0 0 3px rgba(26,150,70,0.16), 0 16px 36px -12px rgba(26,150,70,0.65);
     transition-duration: 260ms, 260ms, 260ms, 300ms, 300ms;
   }
   .cta-shine:is(:hover, :focus-visible), .cta-shine:is(:hover, :focus-visible)::before, .cta-shine:is(:hover, :focus-visible)::after { animation-play-state: running; }
@@ -243,7 +243,7 @@
   .hv-card:hover { box-shadow: 0 14px 36px rgba(0,0,0,0.10); border-color: #0B0B0B; transform: translateY(-2px); }
   .hv-faq:hover { transform: translateY(-2px); box-shadow: 0 30px 70px -46px rgba(11,11,11,0.45); border-color: #CFCFCF; }
   .hv-zoom:hover { transform: scale(1.04); }
-  .hv-border40:hover { border-color: rgba(255,255,255,0.4); }
+  .hv-border40:hover { border-color: #8A8A8A; }
   .hv-borderwhite:hover { border-color: #FFFFFF; }
   .hv-navbtn:hover { background: #FFFFFF; color: #0B0B0B; }
 
@@ -272,7 +272,7 @@
       <a href="#" aria-label="Página inicial — Vieira &amp; Marques" style="display: block;">
         <img src="uploads/webp/logo-vm.webp" fetchpriority="high" decoding="async" alt="Vieira &amp; Marques Sociedade de Advogados" width="160" height="40" class="logo-topo" style="height: 40px; width: auto; display: block; filter: invert(1);">
       </a>
-      <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." class="cta-topo cta-shine" style="color: #0B0B0B; padding: 12px 22px; border-radius: 3px; font-size: 14px; font-weight: 600; white-space: nowrap;">Falar no WhatsApp</a>
+      <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." class="cta-topo cta-shine" style="color: #FFFFFF; padding: 12px 22px; border-radius: 3px; font-size: 14px; font-weight: 600; white-space: nowrap;">Falar no WhatsApp</a>
     </div>
   </header>
 
@@ -288,7 +288,7 @@
         <h1 class="h1" itemProp="headline" style="font-weight: 600; font-size: 52px; line-height: 1.1; letter-spacing: -0.02em; margin: 22px 0 0; color: #FFFFFF; text-wrap: pretty;">Pensando em se divorciar ou já está no processo? <span class="grad-dark">Você não precisa decidir tudo sozinho.</span></h1>
         <p style="font-size: 18px; font-weight: 300; line-height: 1.65; color: #B4B4B4; margin: 24px 0 0; max-width: 36em; text-wrap: pretty;">Guarda dos filhos, pensão alimentícia, partilha de bens: orientamos cada etapa do seu divórcio, consensual ou litigioso, para que você tome decisões com segurança e sem abrir mão dos seus direitos.</p>
         <div class="hero-cta" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px;">
-          <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." class="cta-shine" style="color: #0B0B0B; padding: 18px 30px; border-radius: 3px; font-size: 16px; font-weight: 600;">Solicitar orientação jurídica gratuita</a>
+          <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." class="cta-shine" style="color: #FFFFFF; padding: 18px 30px; border-radius: 3px; font-size: 16px; font-weight: 600;">Solicitar orientação jurídica gratuita</a>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 30px; font-size: 13.5px; color: #9A9A9A; font-weight: 300;">
           <span>Atendimento sigiloso</span>
@@ -359,7 +359,7 @@
         </div>
         <div style="background: #0B0B0B; border: 1px solid #0B0B0B; border-radius: 6px; padding: 30px 28px; display: flex; flex-direction: column; justify-content: center; gap: 18px;">
           <p style="font-size: 18px; line-height: 1.45; color: #FFFFFF; margin: 0; font-weight: 500;">Não sabe qual caminho seguir no seu divórcio?</p>
-          <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." class="cta-shine" style="color: #0B0B0B; padding: 15px 22px; border-radius: 3px; font-size: 15.5px; font-weight: 600; text-align: center;">Quero orientação gratuita</a>
+          <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." class="cta-shine" style="color: #FFFFFF; padding: 15px 22px; border-radius: 3px; font-size: 15.5px; font-weight: 600; text-align: center;">Quero orientação gratuita</a>
         </div>
       </div>
     </div>
@@ -476,7 +476,7 @@
         <p style="font-size: 16.5px; font-weight: 300; line-height: 1.7; color: #B4B4B4; margin: 16px 0 0;">Sede em Boituva/SP, com atendimento presencial ou por reunião online para todo o Brasil.</p>
       </div>
       <div class="lgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px;">
-        <button type="button" data-gallery-idx="0" style="grid-column: span 2; position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);" class="hv-border40">
+        <button type="button" data-gallery-idx="0" style="grid-column: span 2; position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid #000000;" class="hv-border40">
           <img src="uploads/17-e1772128273241.jpg" loading="lazy" decoding="async" alt="Recepção do escritório com a marca Vieira &amp; Marques" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease;" class="hv-zoom">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.75), transparent 55%);"></div>
           <div style="position: absolute; left: 22px; right: 22px; bottom: 20px;">
@@ -484,7 +484,7 @@
             <p style="font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.7); margin: 4px 0 0;">Rua Benedita Sanson Labronici, 180</p>
           </div>
         </button>
-        <button type="button" data-gallery-idx="1" style="position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);" class="hv-border40">
+        <button type="button" data-gallery-idx="1" style="position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid #000000;" class="hv-border40">
           <img src="uploads/admin-ajax-1 (1).jpg" loading="lazy" decoding="async" alt="Equipe do escritório" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .6s ease;" class="hv-zoom">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.75), transparent 55%);"></div>
           <div style="position: absolute; left: 22px; right: 22px; bottom: 20px;">
@@ -492,7 +492,7 @@
             <p style="font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.7); margin: 4px 0 0;">Advogados e time de atendimento</p>
           </div>
         </button>
-        <button type="button" data-gallery-idx="2" style="position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);" class="hv-border40">
+        <button type="button" data-gallery-idx="2" style="position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid #000000;" class="hv-border40">
           <img src="uploads/19.jpg" loading="lazy" decoding="async" alt="Sala de atendimento" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease;" class="hv-zoom">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.75), transparent 55%);"></div>
           <div style="position: absolute; left: 22px; right: 22px; bottom: 20px;">
@@ -500,7 +500,7 @@
             <p style="font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.7); margin: 4px 0 0;">Atendimento presencial ou online</p>
           </div>
         </button>
-        <button type="button" data-gallery-idx="3" style="grid-column: span 2; position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);" class="hv-border40">
+        <button type="button" data-gallery-idx="3" style="grid-column: span 2; position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid #000000;" class="hv-border40">
           <img src="uploads/16.jpg" loading="lazy" decoding="async" alt="Advogada trabalhando em um caso" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease;" class="hv-zoom">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.75), transparent 55%);"></div>
           <div style="position: absolute; left: 22px; right: 22px; bottom: 20px;">
@@ -847,7 +847,7 @@
       </div>
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; margin-top: 32px; padding: 26px 28px; background: #0B0B0B; border-radius: 4px;">
         <p style="font-size: 17px; line-height: 1.5; color: #FFFFFF; margin: 0; font-weight: 500; max-width: 30em;">Ainda com dúvidas sobre o seu divórcio? Conte o que está acontecendo em uma mensagem.</p>
-        <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." class="cta-shine" style="color: #0B0B0B; padding: 15px 24px; border-radius: 3px; font-size: 15.5px; font-weight: 600; white-space: nowrap;">Falar com o escritório</a>
+        <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." class="cta-shine" style="color: #FFFFFF; padding: 15px 24px; border-radius: 3px; font-size: 15.5px; font-weight: 600; white-space: nowrap;">Falar com o escritório</a>
       </div>
     </div>
   </section>
@@ -901,7 +901,7 @@
       <p id="balao-sub" style="font-size: 13.5px; font-weight: 300; line-height: 1.5; color: #4A4A4A; margin: 6px 0 0;">Fale com um advogado e entenda seus direitos antes de decidir.</p>
       <span style="position: absolute; right: 30px; bottom: -7px; width: 14px; height: 14px; background: #FFFFFF; transform: rotate(45deg);"></span>
     </div>
-    <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." aria-label="Falar pelo WhatsApp" class="cta-shine" style="color: #0B0B0B; padding: 15px 22px; border-radius: 999px; font-size: 15px; font-weight: 600;">Falar pelo WhatsApp</a>
+    <a href="https://wa.me/551533470189?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20orienta%C3%A7%C3%A3o%20sobre%20o%20meu%20div%C3%B3rcio." data-wa-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." aria-label="Falar pelo WhatsApp" class="cta-shine" style="color: #FFFFFF; padding: 15px 22px; border-radius: 999px; font-size: 15px; font-weight: 600;">Falar pelo WhatsApp</a>
   </div>
 
   <div id="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="tp-form-titulo" class="tp-veil" hidden style="position: fixed; inset: 0; z-index: 1200; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(0,0,0,0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; animation: tpModalVeil .35s ease forwards;">
@@ -927,7 +927,7 @@
           <input id="popup-email" name="Email" type="email" autocomplete="email" placeholder="seu@email.com" style="width: 100%; padding: 13px 15px; font-size: 15px; color: #FFFFFF; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; outline: none;" />
         </label>
         <p id="popup-erro" role="alert" hidden style="margin: 0; font-size: 13px; line-height: 1.5; color: #FFB4A8; background: rgba(191,60,60,0.16); border: 1px solid rgba(191,60,60,0.36); border-radius: 8px; padding: 10px 12px;"></p>
-        <button type="submit" class="cta-shine" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 6px; padding: 16px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; color: #0B0B0B; cursor: pointer;">Continuar no WhatsApp</button>
+        <button type="submit" class="cta-shine" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 6px; padding: 16px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; color: #FFFFFF; cursor: pointer;">Continuar no WhatsApp</button>
         <p style="margin: 4px 0 0; text-align: center; font-size: 11.5px; line-height: 1.5; color: rgba(255,255,255,0.5);">Seus dados são sigilosos. Nada de spam.</p>
       </form>
     </div>
@@ -1013,12 +1013,12 @@
   @property --pct { syntax: "<percentage>"; initial-value: 5%; inherits: false; }
   @property --shine { syntax: "<color>"; initial-value: #ffffff; inherits: false; }
   .cta-shine {
-    --bg: #FFFFFF; --luz: #C9C9C9; --luzSuave: #EDEDED; --dur: 3s;
+    --bg: #1EA94F; --luz: #4ade80; --luzSuave: #a7f3c4; --dur: 3s;
     isolation: isolate; position: relative; overflow: hidden; outline-offset: 4px;
     white-space: nowrap; flex-shrink: 0;
     border: 1px solid transparent !important;
     background: linear-gradient(var(--bg), var(--bg)) padding-box, conic-gradient(from calc(var(--ang) - var(--angOff)), transparent, var(--luz) var(--pct), var(--shine) calc(var(--pct) * 2), var(--luz) calc(var(--pct) * 3), transparent calc(var(--pct) * 4)) border-box !important;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 8px 22px -12px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 8px 22px -12px rgba(26,150,70,0.5);
     transition: --angOff 700ms cubic-bezier(.22,1,.36,1), --pct 700ms cubic-bezier(.22,1,.36,1), --shine 700ms cubic-bezier(.22,1,.36,1), transform 420ms cubic-bezier(.22,1,.36,1), box-shadow 420ms cubic-bezier(.22,1,.36,1);
     will-change: transform;
   }
@@ -1044,7 +1044,7 @@
   .cta-shine:is(:hover, :focus-visible) {
     --pct: 20%; --angOff: 95deg; --shine: var(--luzSuave);
     transform: translateY(-3px) scale(1.02);
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 0 0 3px rgba(0,0,0,0.12), 0 16px 36px -12px rgba(0,0,0,0.55);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 0 0 3px rgba(26,150,70,0.16), 0 16px 36px -12px rgba(26,150,70,0.65);
     transition-duration: 260ms, 260ms, 260ms, 300ms, 300ms;
   }
   .cta-shine:is(:hover, :focus-visible), .cta-shine:is(:hover, :focus-visible)::before, .cta-shine:is(:hover, :focus-visible)::after { animation-play-state: running; }
@@ -1181,7 +1181,7 @@
       <a href="#" aria-label="Página inicial — Vieira &amp; Marques" style="display: block;">
         <img src="uploads/logo-vm.png" fetchpriority="high" decoding="async" alt="Vieira &amp; Marques Sociedade de Advogados" width="160" height="40" class="logo-topo" style="height: 40px; width: auto; display: block; filter: invert(1);">
       </a>
-      <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" class="cta-topo cta-shine" style="color: #0B0B0B; padding: 12px 22px; border-radius: 3px; font-size: 14px; font-weight: 600; white-space: nowrap;">Falar no WhatsApp</a>
+      <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" class="cta-topo cta-shine" style="color: #FFFFFF; padding: 12px 22px; border-radius: 3px; font-size: 14px; font-weight: 600; white-space: nowrap;">Falar no WhatsApp</a>
     </div>
   </header>
 
@@ -1197,7 +1197,7 @@
         <h1 class="h1" itemProp="headline" style="font-weight: 600; font-size: 52px; line-height: 1.1; letter-spacing: -0.02em; margin: 22px 0 0; color: #FFFFFF; text-wrap: pretty;">Pensando em se divorciar ou já está no processo? <span class="grad-dark">Você não precisa decidir tudo sozinho.</span></h1>
         <p style="font-size: 18px; font-weight: 300; line-height: 1.65; color: #B4B4B4; margin: 24px 0 0; max-width: 36em; text-wrap: pretty;">Guarda dos filhos, pensão alimentícia, partilha de bens: orientamos cada etapa do seu divórcio, consensual ou litigioso, para que você tome decisões com segurança e sem abrir mão dos seus direitos.</p>
         <div class="hero-cta" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px;">
-          <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" class="cta-shine" style="color: #0B0B0B; padding: 18px 30px; border-radius: 3px; font-size: 16px; font-weight: 600;">Solicitar orientação jurídica gratuita</a>
+          <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" class="cta-shine" style="color: #FFFFFF; padding: 18px 30px; border-radius: 3px; font-size: 16px; font-weight: 600;">Solicitar orientação jurídica gratuita</a>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 30px; font-size: 13.5px; color: #7A7A7A; font-weight: 300;">
           <span>Atendimento sigiloso</span>
@@ -1268,7 +1268,7 @@
         </div>
         <div style="background: #0B0B0B; border: 1px solid #0B0B0B; border-radius: 6px; padding: 30px 28px; display: flex; flex-direction: column; justify-content: center; gap: 18px;">
           <p style="font-size: 18px; line-height: 1.45; color: #FFFFFF; margin: 0; font-weight: 500;">Não sabe qual caminho seguir no seu divórcio?</p>
-          <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" class="cta-shine" style="color: #0B0B0B; padding: 15px 22px; border-radius: 3px; font-size: 15.5px; font-weight: 600; text-align: center;">Quero orientação gratuita</a>
+          <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" class="cta-shine" style="color: #FFFFFF; padding: 15px 22px; border-radius: 3px; font-size: 15.5px; font-weight: 600; text-align: center;">Quero orientação gratuita</a>
         </div>
       </div>
     </div>
@@ -1385,7 +1385,7 @@
         <p style="font-size: 16.5px; font-weight: 300; line-height: 1.7; color: #B4B4B4; margin: 16px 0 0;">Sede em Boituva/SP, com atendimento presencial ou por reunião online para todo o Brasil.</p>
       </div>
       <div class="lgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px;">
-        <div onClick="{{ abrir0 }}" style="grid-column: span 2; position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);" style-hover="border-color: rgba(255,255,255,0.4);" loading="lazy">
+        <div onClick="{{ abrir0 }}" style="grid-column: span 2; position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid #000000;" style-hover="border-color: #8A8A8A;" loading="lazy">
           <img src="uploads/17-e1772128273241.jpg" loading="lazy" decoding="async" alt="Recepção do escritório com a marca Vieira &amp; Marques" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease;" style-hover="transform: scale(1.04);">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.75), transparent 55%);"></div>
           <div style="position: absolute; left: 22px; right: 22px; bottom: 20px;">
@@ -1393,7 +1393,7 @@
             <p style="font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.7); margin: 4px 0 0;">Rua Benedita Sanson Labronici, 180</p>
           </div>
         </div>
-        <div onClick="{{ abrir1 }}" style="position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);" style-hover="border-color: rgba(255,255,255,0.4);" loading="lazy">
+        <div onClick="{{ abrir1 }}" style="position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid #000000;" style-hover="border-color: #8A8A8A;" loading="lazy">
           <img src="uploads/admin-ajax-1 (1).jpg" loading="lazy" decoding="async" alt="Equipe do escritório" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .6s ease;" style-hover="transform: scale(1.04);">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.75), transparent 55%);"></div>
           <div style="position: absolute; left: 22px; right: 22px; bottom: 20px;">
@@ -1401,7 +1401,7 @@
             <p style="font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.7); margin: 4px 0 0;">Advogados e time de atendimento</p>
           </div>
         </div>
-        <div onClick="{{ abrir2 }}" style="position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);" style-hover="border-color: rgba(255,255,255,0.4);" loading="lazy">
+        <div onClick="{{ abrir2 }}" style="position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid #000000;" style-hover="border-color: #8A8A8A;" loading="lazy">
           <img src="uploads/19.jpg" loading="lazy" decoding="async" alt="Sala de atendimento" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease;" style-hover="transform: scale(1.04);">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.75), transparent 55%);"></div>
           <div style="position: absolute; left: 22px; right: 22px; bottom: 20px;">
@@ -1409,7 +1409,7 @@
             <p style="font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.7); margin: 4px 0 0;">Atendimento presencial ou online</p>
           </div>
         </div>
-        <div onClick="{{ abrir3 }}" style="grid-column: span 2; position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);" style-hover="border-color: rgba(255,255,255,0.4);" loading="lazy">
+        <div onClick="{{ abrir3 }}" style="grid-column: span 2; position: relative; height: 320px; border-radius: 14px; overflow: hidden; cursor: pointer; border: 1px solid #000000;" style-hover="border-color: #8A8A8A;" loading="lazy">
           <img src="uploads/16.jpg" loading="lazy" decoding="async" alt="Advogada trabalhando em um caso" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease;" style-hover="transform: scale(1.04);">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.75), transparent 55%);"></div>
           <div style="position: absolute; left: 22px; right: 22px; bottom: 20px;">
@@ -1638,7 +1638,7 @@
       </div>
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; margin-top: 32px; padding: 26px 28px; background: #0B0B0B; border-radius: 4px;">
         <p style="font-size: 17px; line-height: 1.5; color: #FFFFFF; margin: 0; font-weight: 500; max-width: 30em;">Ainda com dúvidas sobre o seu divórcio? Conte o que está acontecendo em uma mensagem.</p>
-        <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" class="cta-shine" style="color: #0B0B0B; padding: 15px 24px; border-radius: 3px; font-size: 15.5px; font-weight: 600; white-space: nowrap;">Falar com o escritório</a>
+        <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" class="cta-shine" style="color: #FFFFFF; padding: 15px 24px; border-radius: 3px; font-size: 15.5px; font-weight: 600; white-space: nowrap;">Falar com o escritório</a>
       </div>
     </div>
   </section>
@@ -1694,7 +1694,7 @@
       <span style="position: absolute; right: 30px; bottom: -7px; width: 14px; height: 14px; background: #FFFFFF; transform: rotate(45deg);"></span>
     </div>
     </sc-if>
-    <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" aria-label="Falar pelo WhatsApp" class="cta-shine" style="color: #0B0B0B; padding: 15px 22px; border-radius: 999px; font-size: 15px; font-weight: 600;">Falar pelo WhatsApp</a>
+    <a href="{{ waLink }}" data-msg="Oi, vim pelo site e quero orientação sobre o meu divórcio." onClick="{{ abrirPopup }}" aria-label="Falar pelo WhatsApp" class="cta-shine" style="color: #FFFFFF; padding: 15px 22px; border-radius: 999px; font-size: 15px; font-weight: 600;">Falar pelo WhatsApp</a>
   </div>
 
   <sc-if value="{{ formOpen }}" hint-placeholder-val="{{ false }}">
@@ -1723,7 +1723,7 @@
           <sc-if value="{{ formErro }}" hint-placeholder-val="{{ false }}">
             <p role="alert" style="margin: 0; font-size: 13px; line-height: 1.5; color: #FFB4A8; background: rgba(191,60,60,0.16); border: 1px solid rgba(191,60,60,0.36); border-radius: 8px; padding: 10px 12px;">{{ formErro }}</p>
           </sc-if>
-          <button type="submit" class="cta-shine" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 6px; padding: 16px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; color: #0B0B0B; cursor: pointer;">Continuar no WhatsApp</button>
+          <button type="submit" class="cta-shine" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 6px; padding: 16px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; color: #FFFFFF; cursor: pointer;">Continuar no WhatsApp</button>
           <p style="margin: 4px 0 0; text-align: center; font-size: 11.5px; line-height: 1.5; color: rgba(255,255,255,0.5);">Seus dados são sigilosos. Nada de spam.</p>
         </form>
       </div>
