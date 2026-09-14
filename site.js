@@ -30,11 +30,11 @@
 
   var PROPS = propsPadrao();
   var FONE = PROPS.telefoneWhatsapp.replace(/\D/g, "");
-  var WA_LINK = "https://wa.me/" + FONE + "?text=" + encodeURIComponent(PROPS.mensagemWhatsapp);
+  var WA_LINK = "https://api.whatsapp.com/send/?phone=" + FONE + "&text=" + encodeURIComponent(PROPS.mensagemWhatsapp);
 
   document.querySelectorAll("[data-wa-msg]").forEach(function (el) {
     var msg = el.getAttribute("data-wa-msg") || PROPS.mensagemWhatsapp;
-    el.setAttribute("href", "https://wa.me/" + FONE + "?text=" + encodeURIComponent(msg));
+    el.setAttribute("href", "https://api.whatsapp.com/send/?phone=" + FONE + "&text=" + encodeURIComponent(msg));
   });
   document.querySelectorAll("[data-wa-default]").forEach(function (el) {
     el.setAttribute("href", WA_LINK);
@@ -113,7 +113,7 @@
       }
       var linhas = [pendingMsg || "Olá!", "", "Nome: " + nome.trim(),
         email.trim() ? "E-mail: " + email.trim() : null, "Telefone: " + tel.trim()].filter(Boolean);
-      var url = "https://wa.me/" + FONE + "?text=" + encodeURIComponent(linhas.join("\n"));
+      var url = "https://api.whatsapp.com/send/?phone=" + FONE + "&text=" + encodeURIComponent(linhas.join("\n"));
       enviarPlanilha(nome.trim(), email.trim(), tel.trim());
       window.open(url, "_blank", "noopener,noreferrer");
       try { sessionStorage.setItem("popup_lead_enviado", "1"); } catch (err) {}
@@ -329,7 +329,7 @@
 
   // ---------- Reveal ao rolar (idêntico ao comportamento original) ----------
   function setupReveal() {
-    var sel = ".h2, .sec > div > div > p, .sec > div > p, .grid3 > div, .grid3 > img, .hero-img, .hero-img + div, .sec details, .sec a[href^='https://wa.me'], .sec > div > div > div, footer > div";
+    var sel = ".h2, .sec > div > div > p, .sec > div > p, .grid3 > div, .grid3 > img, .hero-img, .hero-img + div, .sec details, .sec a[href^='https://api.whatsapp.com/send'], .sec > div > div > div, footer > div";
     var groups = Array.from(document.querySelectorAll("section, footer"));
     groups.forEach(function (g) {
       var els = Array.from(g.querySelectorAll(sel)).filter(function (e, i, a) {

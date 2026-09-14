@@ -817,7 +817,7 @@ class Component extends DCLogic {
     this._capturarUtm();
     this._pcStart();
     this._vpsStart();
-    const sel = ".h2, .sec > div > div > p, .sec > div > p, .grid3 > div, .grid3 > img, .hero-img, .hero-img + div, .sec details, .sec a[href^='https://wa.me'], .sec > div > div > div, footer > div";
+    const sel = ".h2, .sec > div > div > p, .sec > div > p, .grid3 > div, .grid3 > img, .hero-img, .hero-img + div, .sec details, .sec a[href^='https://api.whatsapp.com/send'], .sec > div > div > div, footer > div";
     document.querySelectorAll(".stack-sec .reveal:not(.stack-card)").forEach((el) => el.classList.add("reveal-solo"));
     const groups = Array.from(document.querySelectorAll("section, footer"));
     groups.forEach((g) => {
@@ -993,7 +993,7 @@ class Component extends DCLogic {
     }
     const fone = (this.props.telefoneWhatsapp ?? "551533470189").replace(/\D/g, "");
     const linhas = [pendingMsg || "Olá!", "", "Nome: " + formNome.trim(), formEmail.trim() ? "E-mail: " + formEmail.trim() : null, "Telefone: " + formTel.trim()].filter(Boolean);
-    const url = "https://wa.me/" + fone + "?text=" + encodeURIComponent(linhas.join("\n"));
+    const url = "https://api.whatsapp.com/send/?phone=" + fone + "&text=" + encodeURIComponent(linhas.join("\n"));
     this._enviarPlanilha(formNome.trim(), formEmail.trim(), formTel.trim());
     window.open(url, "_blank", "noopener,noreferrer");
     try { sessionStorage.setItem("popup_lead_enviado", "1"); } catch (err) {}
@@ -1101,7 +1101,7 @@ class Component extends DCLogic {
         : null,
       selecionadaTitulo: atual ? atual.titulo : "",
       selecionadaLegenda: atual ? atual.legenda : "",
-      waLink: "https://wa.me/" + fone + "?text=" + encodeURIComponent(msg),
+      waLink: "https://api.whatsapp.com/send/?phone=" + fone + "&text=" + encodeURIComponent(msg),
       depoimentos,
       col1: depoimentos.slice(0, 3),
       col2: depoimentos.slice(3, 6),
