@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vieiraemarquesadvogados.com/divorcio/sitemap.xml
+Sitemap: https://divorcio.vieiraemarquesadvogados.com/sitemap.xml
