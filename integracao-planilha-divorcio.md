@@ -1,12 +1,12 @@
 # Integração do popup (Divórcio) com Google Sheets
 
-Planilha: https://docs.google.com/spreadsheets/d/1f6t-K2T-mHii6PzwU9GOONq0vy4R-4D92Z-S6oKSybg/edit
+Planilha: https://docs.google.com/spreadsheets/d/1UZ4aFqfA6sWrl7tETqNO9xgayno9EwmpAK7mSvoCIaU/edit
 
 Cole o código abaixo no Apps Script dessa planilha (Extensões → Apps Script), rode `testar()` uma vez, depois Implantar → Nova implantação → App da Web (Executar como: você; Acesso: qualquer pessoa) e me envie a URL `/exec` gerada — preciso dela para conectar ao popup do site.
 
 ```js
-var EMAIL_AVISO = 'recjohny-091@gmail.com,agencia.adrmarketing@gmail.com';
-var PLANILHA_ID = '1f6t-K2T-mHii6PzwU9GOONq0vy4R-4D92Z-S6oKSybg';
+var EMAIL_AVISO = 'recjohny091@gmail.com,agencia.adrmarketing@gmail.com';
+var PLANILHA_ID = '1UZ4aFqfA6sWrl7tETqNO9xgayno9EwmpAK7mSvoCIaU';
 var FUSO = 'America/Sao_Paulo';
 
 var COLUNAS = ['Data','Nome','Email','WhatsApp','Mensagem','Origem do form',
@@ -32,8 +32,11 @@ function salvarLead(d) {
   try {
     var sh = SpreadsheetApp.openById(PLANILHA_ID).getSheets()[0];
 
-    if (sh.getLastRow() === 0) {
-      sh.appendRow(COLUNAS);
+    var headerAtual = sh.getLastRow() > 0 ? sh.getRange(1, 1, 1, COLUNAS.length).getValues()[0] : [];
+    var headerOk = headerAtual.length === COLUNAS.length &&
+      headerAtual.every(function (v, i) { return v === COLUNAS[i]; });
+    if (!headerOk) {
+      sh.getRange(1, 1, 1, COLUNAS.length).setValues([COLUNAS]);
       sh.getRange(1, 1, 1, COLUNAS.length)
         .setFontWeight('bold').setBackground('#0B0B0B').setFontColor('#ffffff');
       sh.setFrozenRows(1);
@@ -172,10 +175,17 @@ function testar() {
   Logger.log(salvarLead({
     nome: 'Teste', email: 'teste@teste.com', whatsapp: '15999999999',
     mensagem: 'Oi, quero orientação sobre o meu divórcio.',
-    origem_form: 'popup', pagina: 'https://vieiraemarquesadvogados.com/divorcio/'
+    origem_form: 'popup', pagina: 'https://divorcio.vieiraemarquesadvogados.com/'
   }).getContent());
 }
 ```
 
 ## Last sync
-Aguardando: usuário implantar o Apps Script e enviar a URL `/exec` para eu atualizar `endpointPlanilha` em Divorcio.dc.html.
+Aguardando: usuário implantar este Apps Script (apontando pra planilha nova,
+1UZ4aFqfA6sWrl7tETqNO9xgayno9EwmpAK7mSvoCIaU) e enviar a URL `/exec` gerada.
+
+Atenção: o `endpointPlanilha` hoje em uso (Divorcio.dc.html, index.html e
+site.js) ainda aponta para uma implantação anterior, ligada a outra planilha
+(1f6t-K2T-mHii6PzwU9GOONq0vy4R-4D92Z-S6oKSybg). Preciso confirmar com o
+usuário se a planilha nova deve substituir essa, antes de trocar o endpoint
+nos arquivos do site.
