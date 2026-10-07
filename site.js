@@ -10,7 +10,7 @@
     var padrao = {
       telefoneWhatsapp: "551533470189",
       mensagemWhatsapp: "Oi, vim pelo site e quero orientação sobre o meu divórcio.",
-      endpointPlanilha: "https://script.google.com/macros/s/AKfycbzHZUo-MCgTiJJ2XWIHXoQUo4UyQYeRaHpeJBX4WXM7Yzc9lmpcc0ZIkoReL2Cgtagp/exec"
+      endpointPlanilha: "https://script.google.com/macros/s/AKfycbxywAoH6_pos7P8_LPjOHDWPqYNitVMWlQpoVDwHWibe_jrW1Q0KK-Qh7vqasjKwcJoEA/exec"
     };
     try {
       var tpl = document.getElementById("dc-source");

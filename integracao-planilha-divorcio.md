@@ -181,11 +181,11 @@ function testar() {
 ```
 
 ## Last sync
-Aguardando: usuário implantar este Apps Script (apontando pra planilha nova,
-1UZ4aFqfA6sWrl7tETqNO9xgayno9EwmpAK7mSvoCIaU) e enviar a URL `/exec` gerada.
+Resolvido — o `endpointPlanilha` (Divorcio.dc.html, index.html e site.js)
+estava apontando para a implantação da planilha de Boituva por engano,
+fazendo os leads dessa LP (divorcio.vieiraemarquesadvogados.com) caírem na
+planilha errada. Trocado para a implantação ligada à planilha DIVORCIO
+(1UZ4aFqfA6sWrl7tETqNO9xgayno9EwmpAK7mSvoCIaU):
+https://script.google.com/macros/s/AKfycbxywAoH6_pos7P8_LPjOHDWPqYNitVMWlQpoVDwHWibe_jrW1Q0KK-Qh7vqasjKwcJoEA/exec
 
-Atenção: o `endpointPlanilha` hoje em uso (Divorcio.dc.html, index.html e
-site.js) ainda aponta para uma implantação anterior, ligada a outra planilha
-(1f6t-K2T-mHii6PzwU9GOONq0vy4R-4D92Z-S6oKSybg). Preciso confirmar com o
-usuário se a planilha nova deve substituir essa, antes de trocar o endpoint
-nos arquivos do site.
+A LP divorcio-boituva não foi tocada e continua usando o endpoint de Boituva.
