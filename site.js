@@ -329,6 +329,7 @@
 
   // ---------- Reveal ao rolar (idêntico ao comportamento original) ----------
   function setupReveal() {
+    var podeRolar = document.documentElement.scrollHeight - window.innerHeight > 40;
     var sel = ".h2, .sec > div > div > p, .sec > div > p, .grid3 > div, .grid3 > img, .hero-img, .hero-img + div, .sec details, .sec a[href^='https://api.whatsapp.com/send'], .sec > div > div > div, footer > div";
     var groups = Array.from(document.querySelectorAll("section, footer"));
     groups.forEach(function (g) {
@@ -347,7 +348,6 @@
       });
     }, { rootMargin: "0px 0px 15% 0px", threshold: 0 });
     all.forEach(function (el) { io.observe(el); });
-    var podeRolar = document.documentElement.scrollHeight - window.innerHeight > 40;
     setTimeout(function () { all.forEach(function (el) { el.classList.add("in"); }); }, podeRolar ? 3000 : 80);
   }
   setupReveal();
