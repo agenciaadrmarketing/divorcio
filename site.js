@@ -9,7 +9,7 @@
   function propsPadrao() {
     var padrao = {
       telefoneWhatsapp: "551533470189",
-      mensagemWhatsapp: "Oi, vim pelo site e quero orientação sobre o meu divórcio.",
+      mensagemWhatsapp: "Oi, vim pelo site e gostaria de falar com um advogado de divórcio.",
       endpointPlanilha: "https://script.google.com/macros/s/AKfycbxywAoH6_pos7P8_LPjOHDWPqYNitVMWlQpoVDwHWibe_jrW1Q0KK-Qh7vqasjKwcJoEA/exec"
     };
     try {
@@ -39,109 +39,6 @@
   document.querySelectorAll("[data-wa-default]").forEach(function (el) {
     el.setAttribute("href", WA_LINK);
   });
-
-  // ---------- Popup de contato (lead) ----------
-  var popupOverlay = document.getElementById("popup-overlay");
-  var popupForm = document.getElementById("popup-form");
-  var popupTitulo = document.getElementById("tp-form-titulo");
-  var popupSub = document.getElementById("popup-sub");
-  var popupErro = document.getElementById("popup-erro");
-  var popupNome = document.getElementById("popup-nome");
-  var popupTel = document.getElementById("popup-tel");
-  var popupEmail = document.getElementById("popup-email");
-  var pendingMsg = "";
-
-  function abrirPopup(msg, titulo, sub) {
-    pendingMsg = msg || PROPS.mensagemWhatsapp;
-    popupTitulo.textContent = titulo || "Vamos conversar?";
-    popupSub.textContent = sub || "Deixe seu nome e WhatsApp — a mensagem já vai pronta.";
-    popupErro.hidden = true;
-    popupErro.textContent = "";
-    popupOverlay.hidden = false;
-  }
-  function fecharPopup() {
-    popupOverlay.hidden = true;
-  }
-  document.querySelectorAll("[data-close-popup]").forEach(function (el) {
-    el.addEventListener("click", fecharPopup);
-  });
-  document.addEventListener("click", function (ev) {
-    var el = ev.target.closest && ev.target.closest("[data-wa-msg]");
-    if (!el) return;
-    ev.preventDefault();
-    abrirPopup(el.getAttribute("data-wa-msg"));
-  });
-
-  function capturarUtm() {
-    try {
-      if (sessionStorage.getItem("lead_utm")) return;
-      var q = new URLSearchParams(window.location.search);
-      var utm = {
-        utm_source: q.get("utm_source") || "", utm_medium: q.get("utm_medium") || "",
-        utm_campaign: q.get("utm_campaign") || "", utm_term: q.get("utm_term") || "",
-        utm_content: q.get("utm_content") || "", gclid: q.get("gclid") || "", fbclid: q.get("fbclid") || ""
-      };
-      sessionStorage.setItem("lead_utm", JSON.stringify(utm));
-    } catch (err) {}
-  }
-  capturarUtm();
-
-  function enviarPlanilha(nome, email, tel) {
-    var endpoint = PROPS.endpointPlanilha;
-    if (!endpoint) return;
-    var utm = {};
-    try { utm = JSON.parse(sessionStorage.getItem("lead_utm") || "{}"); } catch (err) {}
-    var dados = Object.assign({
-      nome: nome, email: email, whatsapp: tel, mensagem: pendingMsg || "",
-      origem_form: "popup", pagina: window.location.href
-    }, utm);
-    var qs = Object.keys(dados).map(function (k) {
-      return encodeURIComponent(k) + "=" + encodeURIComponent(dados[k] || "");
-    }).join("&");
-    try { new Image().src = endpoint + "?" + qs; } catch (err) {}
-    try { fetch(endpoint, { method: "POST", mode: "no-cors", body: JSON.stringify(dados) }); } catch (err) {}
-  }
-
-  if (popupForm) {
-    popupForm.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      var nome = popupNome.value, tel = popupTel.value, email = popupEmail.value;
-      if (!nome.trim() || !tel.trim()) {
-        popupErro.textContent = "Preciso do seu nome e WhatsApp para continuar.";
-        popupErro.hidden = false;
-        return;
-      }
-      var linhas = [pendingMsg || "Olá!", "", "Nome: " + nome.trim(),
-        email.trim() ? "E-mail: " + email.trim() : null, "Telefone: " + tel.trim()].filter(Boolean);
-      var url = "https://api.whatsapp.com/send/?phone=" + FONE + "&text=" + encodeURIComponent(linhas.join("\n"));
-      enviarPlanilha(nome.trim(), email.trim(), tel.trim());
-      window.open(url, "_blank", "noopener,noreferrer");
-      try { sessionStorage.setItem("popup_lead_enviado", "1"); } catch (err) {}
-      fecharPopup();
-    });
-  }
-
-  function wireExitIntent() {
-    if (window.innerWidth < 900) return;
-    var jaMostrou = false;
-    try {
-      jaMostrou = sessionStorage.getItem("popup_exit_mostrado") === "1" ||
-        sessionStorage.getItem("popup_lead_enviado") === "1";
-    } catch (err) {}
-    if (jaMostrou) return;
-    var onExit = function (ev) {
-      if (ev.clientY > 0 || !popupOverlay.hidden) return;
-      try { sessionStorage.setItem("popup_exit_mostrado", "1"); } catch (err) {}
-      document.removeEventListener("mouseout", onExit);
-      abrirPopup(
-        "Oi, vim pelo site e quero orientação sobre o meu divórcio.",
-        "Antes de você ir...",
-        "Se ainda tem dúvidas, deixe seu contato — a gente te responde pelo WhatsApp."
-      );
-    };
-    setTimeout(function () { document.addEventListener("mouseout", onExit); }, 8000);
-  }
-  wireExitIntent();
 
   // ---------- Balão flutuante (frases rotativas) ----------
   var balao = document.getElementById("balao");
